@@ -27,10 +27,10 @@ public class User {
     @Column(length = 500, nullable = true)
     private String urlImg;
 
-    // contrutor vazio
+    // construtor vazio
     public User(){}
 
-    // contrutor com argumento
+    // construtor com argumento
     public User(String name, String email, String password, String urlImg) {
         this.name = name;
         this.email = email;
