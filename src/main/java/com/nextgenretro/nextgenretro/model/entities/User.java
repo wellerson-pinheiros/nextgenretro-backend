@@ -1,4 +1,4 @@
-package model.entities;
+package com.nextgenretro.nextgenretro.model.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
