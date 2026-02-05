@@ -13,13 +13,20 @@ public abstract class Product  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
     private Long id;
+
     @NotBlank(message = "O nome é obrigatório")
     @Size(min = 3, max = 300)
     private String name;
+
     @Column(length = 500, nullable = true)
     private String description;
+
     @NotBlank(message = "O preço é obrigatório")
     private Double price;
+
+    @Column(nullable = true)
+    private String fabricante;
+
     @Column(length = 500, nullable = true)
     private String imgUrl;
 

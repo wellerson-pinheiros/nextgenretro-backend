@@ -14,16 +14,20 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotBlank(message = "O nome é Obrigatório")
     @Size(min = 3, max = 300, message = "O nome deve ter no minimo três caracteres e no máximo 300 caracteres!")
     private String name;
+
     @NotBlank(message = "O email é Obrigatório")
     @Email(message = "Email inválido!")
     @Column(unique = true)
     private String email;
+
     @NotBlank(message = "A senha é Obrigatório")
     @Size(min = 6, max = 20, message = "A senha deve ter entre 6 e 20 caracteres!")
     private String password;
+
     @Column(length = 500, nullable = true)
     private String urlImg;
 
