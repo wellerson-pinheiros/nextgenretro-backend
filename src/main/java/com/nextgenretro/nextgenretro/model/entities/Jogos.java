@@ -2,7 +2,9 @@ package com.nextgenretro.nextgenretro.model.entities;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_jogos")
@@ -18,7 +20,7 @@ public class Jogos extends Product{
             joinColumns = @JoinColumn( name = "jogo_id"),  // Relacionamento com Jogo, será a fk da tabela intermediária
             inverseJoinColumns = @JoinColumn( name = "genero_id") // Relacionamento com Gênero, será a fk da tabela intermediária
     )
-    private List<GeneroJogos> generos;
+    private Set<GeneroJogos> generos = new HashSet<>();
 
     @Column(nullable = true)
     private String fachaEtaria;
@@ -53,7 +55,7 @@ public class Jogos extends Product{
         this.fachaEtaria = fachaEtaria;
     }
 
-    public List<GeneroJogos> getGeneros() {
+    public Set<GeneroJogos> getGeneros() {
         return generos;
     }
 
