@@ -1,8 +1,6 @@
 package com.nextgenretro.nextgenretro.model.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tb_controles")
@@ -16,6 +14,16 @@ public class Controles extends Product{
 
     @Column(length = 300, nullable = true)
     private String cor;
+
+    public Controles() {
+    }
+
+    public Controles(Long id, String name, String description, Double price, String imgUrl, String tipoConexao, String originalReplica, String cor) {
+        super(id, name, description, price, imgUrl);
+        this.tipoConexao = tipoConexao;
+        this.originalReplica = originalReplica;
+        this.cor = cor;
+    }
 
     public String getTipoConexao() {
         return tipoConexao;

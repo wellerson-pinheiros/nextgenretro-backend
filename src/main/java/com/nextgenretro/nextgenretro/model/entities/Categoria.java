@@ -3,7 +3,7 @@ package com.nextgenretro.nextgenretro.model.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "tb_categoria")
@@ -13,6 +13,9 @@ public class Categoria {
     private long id;
     @NotBlank(message = "A categoria é obrigatória")
     private String nomeCategoria;
+
+    @OneToMany(mappedBy = "categoria")
+    private Set<Jogos> jogos = new HashSet<>();
 
     //Construtor vazio
     public Categoria() {}
@@ -39,6 +42,18 @@ public class Categoria {
 
     public void setNomeCategoria(String nomeCategoria) {
         this.nomeCategoria = nomeCategoria;
+    }
+
+    public Set<Jogos> getJogos() {
+        return  jogos;
+    }
+
+    public void addJogos(Jogos jogo) {
+        this.jogos.add(jogo);
+    }
+
+    public void removeJogos(Jogos jogos) {
+        this.jogos.remove(jogos);
     }
 
     @Override

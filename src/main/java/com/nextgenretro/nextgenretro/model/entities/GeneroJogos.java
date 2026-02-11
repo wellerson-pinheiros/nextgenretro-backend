@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -22,7 +23,7 @@ public class GeneroJogos {
     private String descricao;
 
     @ManyToMany(mappedBy = "generos")
-    private List<Jogos> jogos;
+    private List<Jogos> jogos = new ArrayList<>();
 
     //Construtor vazio
     public GeneroJogos() {}

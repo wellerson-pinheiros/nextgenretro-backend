@@ -1,9 +1,7 @@
 package com.nextgenretro.nextgenretro.model.entities;
 
 import jakarta.persistence.*;
-
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -13,7 +11,7 @@ public class Jogos extends Product{
     @Column(nullable = true)
     private String plataforma;
 
-    @Column(nullable = false)
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "tb_intermediaria_jogo_genero", // Nome da tabela intermediária
@@ -25,16 +23,22 @@ public class Jogos extends Product{
     @Column(nullable = true)
     private String fachaEtaria;
 
+    @ManyToOne
+    @JoinColumn(name = "categoria_id") // Certifique-se de que essa coluna existe na tabela
+    private Categoria categoria;
+
+
     //Contrutor vázio
 
     public Jogos() {}
 
     // Construtor com argumento
 
-    public Jogos(Long id, String name, String description, Double price, String imgUrl, String plataforma, String fachaEtaria) {
+    public Jogos (Long id, String name, String description, Double price, String imgUrl, String plataforma, String fachaEtaria, Categoria categoria) {
         super(id, name, description, price, imgUrl);
         this.plataforma = plataforma;
         this.fachaEtaria = fachaEtaria;
+        this.categoria = categoria;
     }
 
     //getter and setter

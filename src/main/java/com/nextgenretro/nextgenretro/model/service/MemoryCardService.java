@@ -9,6 +9,7 @@ import java.util.List;
 
 @Service
 public class MemoryCardService {
+
     @Autowired
     private MemoryCardRepository memoryCardRepository;
 

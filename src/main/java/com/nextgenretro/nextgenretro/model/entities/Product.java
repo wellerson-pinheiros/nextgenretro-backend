@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+
 import java.util.Objects;
 
 @MappedSuperclass
@@ -30,6 +31,7 @@ public abstract class Product  {
     @Column(length = 500, nullable = true)
     private String imgUrl;
 
+
     // Construtor vazio
     public Product() {}
 
@@ -41,6 +43,8 @@ public abstract class Product  {
         this.price = price;
         this.imgUrl = imgUrl;
     }
+
+
 
     //Getter and Setter
 
@@ -84,6 +88,16 @@ public abstract class Product  {
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
     }
+
+    public String getFabricante() {
+        return fabricante;
+    }
+
+    public void setFabricante(String fabricante) {
+        this.fabricante = fabricante;
+    }
+
+
 
     @Override
     public boolean equals(Object o) {
