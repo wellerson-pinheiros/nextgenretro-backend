@@ -13,7 +13,7 @@ import java.util.Objects;
 public class GeneroJogos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @NotBlank(message = "O jogo precisa de um gênero!")
     @Size(min = 1, max = 300)
@@ -29,20 +29,22 @@ public class GeneroJogos {
     public GeneroJogos() {}
 
     //Construtor com argumentos
-    public GeneroJogos(int id, String nome, String descricao) {
+
+    public GeneroJogos(Long id, String nome, String descricao) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
     }
 
+
     //Getter and Setter
 
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -61,6 +63,12 @@ public class GeneroJogos {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+    public List<Jogos> getJogos() {
+        return jogos;
+    }
+
+
 
     @Override
     public boolean equals(Object o) {

@@ -1,5 +1,6 @@
 package com.nextgenretro.nextgenretro.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -24,7 +25,8 @@ public class Jogos extends Product{
     private String fachaEtaria;
 
     @ManyToOne
-    @JoinColumn(name = "categoria_id") // Certifique-se de que essa coluna existe na tabela
+    @JoinColumn(name = "categoria_id")
+    @JsonIgnore// Certifique-se de que essa coluna existe na tabela
     private Categoria categoria;
 
 
@@ -42,6 +44,8 @@ public class Jogos extends Product{
     }
 
     //getter and setter
+
+
 
     public String getPlataforma() {
         return plataforma;
@@ -69,6 +73,14 @@ public class Jogos extends Product{
 
     public void removeGeneroJogos(GeneroJogos generoJogos) {
         this.generos.remove(generoJogos);
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
 

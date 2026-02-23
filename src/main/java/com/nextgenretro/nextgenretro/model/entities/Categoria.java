@@ -21,9 +21,12 @@ public class Categoria {
     public Categoria() {}
 
     //Contrutor com argumento
-    public Categoria(String nomeCategoria) {
+
+    public Categoria(long id, String nomeCategoria) {
+        this.id = id;
         this.nomeCategoria = nomeCategoria;
     }
+
 
     // Getter and Setter
 
