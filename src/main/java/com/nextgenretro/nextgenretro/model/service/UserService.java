@@ -1,12 +1,8 @@
 package com.nextgenretro.nextgenretro.model.service;
 
-import com.nextgenretro.nextgenretro.model.dto.CategoriaDTO;
-import com.nextgenretro.nextgenretro.model.dto.JogosDTO;
-import com.nextgenretro.nextgenretro.model.entities.Categoria;
-import com.nextgenretro.nextgenretro.model.entities.Jogos;
 import com.nextgenretro.nextgenretro.model.entities.User;
 import com.nextgenretro.nextgenretro.model.repository.UserRepository;
-import com.nextgenretro.nextgenretro.model.service.exception.ResourceNotFoundException;
+import com.nextgenretro.nextgenretro.model.controller.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -28,4 +28,22 @@ public class JogosController {
         JogosDTO jogosDTO = jogosService.findById(id);
         return ResponseEntity.ok().body(jogosDTO);
     }
+
+    @GetMapping(value = "/name/{name}")
+    public ResponseEntity<List<JogosDTO>> findByName(@PathVariable String name) {
+        List<JogosDTO> list = jogosService.findByName(name);
+        return ResponseEntity.ok().body(list);
+    }
+
+    @GetMapping(value = "/fachaetaria/{fachaetaria}")
+    public  ResponseEntity<List<JogosDTO>> findByFachaetaria(@PathVariable String fachaetaria) {
+        List<JogosDTO> listfachaetaria = jogosService.findByfachaEtaria(fachaetaria);
+        return ResponseEntity.ok().body(listfachaetaria);
+    }
+
+    @GetMapping(value = "/pricebetween/{minPrice}/{maxPrice}")
+    public ResponseEntity<List<JogosDTO>> findByPriceBetween(@PathVariable Double minPrice, @PathVariable Double maxPrice) {
+        List<JogosDTO> pricebetween = jogosService.findByPrice(minPrice, maxPrice);
+        return ResponseEntity.ok().body(pricebetween);
+    }
 }
