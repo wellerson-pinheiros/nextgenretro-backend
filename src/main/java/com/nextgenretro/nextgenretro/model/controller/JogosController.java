@@ -1,14 +1,14 @@
 package com.nextgenretro.nextgenretro.model.controller;
 
+import com.nextgenretro.nextgenretro.model.dto.JogosCreatDTO;
 import com.nextgenretro.nextgenretro.model.dto.JogosDTO;
+import com.nextgenretro.nextgenretro.model.entities.Jogos;
 import com.nextgenretro.nextgenretro.model.service.JogosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -45,5 +45,17 @@ public class JogosController {
     public ResponseEntity<List<JogosDTO>> findByPriceBetween(@PathVariable Double minPrice, @PathVariable Double maxPrice) {
         List<JogosDTO> pricebetween = jogosService.findByPrice(minPrice, maxPrice);
         return ResponseEntity.ok().body(pricebetween);
+    }
+
+    @GetMapping(value = "/generos/{genero}")
+    public ResponseEntity<List<JogosDTO>> findByGenero (@PathVariable String genero) {
+        List<JogosDTO> list = jogosService.findByGenero(genero);
+        return ResponseEntity.ok().body(list);
+    }
+
+    @PostMapping
+    public ResponseEntity<Jogos> create(@RequestBody JogosCreatDTO jogosCreatDTO) {
+        Jogos jogoCreat = jogosService.create(jogosCreatDTO);
+        return ResponseEntity.ok().body(jogoCreat);
     }
 }

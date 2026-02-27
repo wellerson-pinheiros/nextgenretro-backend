@@ -1,5 +1,6 @@
 package com.nextgenretro.nextgenretro.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -22,6 +23,7 @@ public class GeneroJogos {
     @Column(length = 600, nullable = true)
     private String descricao;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "generos")
     private List<Jogos> jogos = new ArrayList<>();
 
@@ -29,6 +31,11 @@ public class GeneroJogos {
     public GeneroJogos() {}
 
     //Construtor com argumentos
+
+    public GeneroJogos(String nome, String descricao) {
+        this.nome = nome;
+        this.descricao = descricao;
+    }
 
     public GeneroJogos(Long id, String nome, String descricao) {
         this.id = id;
@@ -68,6 +75,13 @@ public class GeneroJogos {
         return jogos;
     }
 
+    public void addJogos(Jogos jogos) {
+        this.jogos.add(jogos);
+    }
+
+    public void removeJogos(Jogos jogos) {
+        this.jogos.remove(jogos);
+    }
 
 
     @Override

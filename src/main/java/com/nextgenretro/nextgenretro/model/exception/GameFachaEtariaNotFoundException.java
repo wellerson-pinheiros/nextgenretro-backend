@@ -1,4 +1,4 @@
-package com.nextgenretro.nextgenretro.model.controller.exception;
+package com.nextgenretro.nextgenretro.model.exception;
 
 public class GameFachaEtariaNotFoundException extends RuntimeException{
     public GameFachaEtariaNotFoundException(String fachaEtaria){

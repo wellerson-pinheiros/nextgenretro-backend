@@ -5,15 +5,11 @@ INSERT INTO tb_usuarios (name, email, password, url_img) VALUES
 ('Maria Oliveira', 'maria.oliveira@example.com', '1234abcd', 'http://example.com/img2.jpg'),
 ('Carlos Souza', 'carlos.souza@example.com', 'qwerty123', 'http://example.com/img3.jpg');
 
--- Inserção de dados na tabela tb_categoria
-INSERT INTO tb_categoria (nome_categoria)
-VALUES
-    ('Ação'),
-    ('Aventura'),
-    ('RPG'),
-    ('Simulação'),
-    ('Estratégia');
+-- Inserindo categorias no banco de dados
 
+INSERT INTO tb_categoria (nome_categoria) VALUES ('CONSOLES');
+INSERT INTO tb_categoria (nome_categoria) VALUES ('PERIFERICOS');
+INSERT INTO tb_categoria (nome_categoria) VALUES ('ACESSORIOS');
 -- Inserção de dados na tabela tb_console
 INSERT INTO tb_console (name, description, fabricante, img_url, price, ano_lancamento, modelo)
 VALUES

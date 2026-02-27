@@ -30,4 +30,7 @@ public class UserController {
         User user = userService.findById(id);
         return ResponseEntity.ok().body(user);
     }
+
+
+
 }

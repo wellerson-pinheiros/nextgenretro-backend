@@ -13,4 +13,8 @@ public interface JogosRepository extends JpaRepository<Jogos, Long> {
    Optional<List<Jogos>> findByFachaEtariaIgnoreCaseLike(String fachaEtaria);
 
    Optional<List<Jogos>> findByPriceBetween(Double minPrice, Double maxPrice);
+
+   Optional<List<Jogos>> findByGeneros_NomeContainingIgnoreCase(String genero);
+
+    Optional<Jogos> findByNameIgnoreCase(String name);
 }

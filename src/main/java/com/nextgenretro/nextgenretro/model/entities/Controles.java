@@ -18,8 +18,8 @@ public class Controles extends Product{
     public Controles() {
     }
 
-    public Controles(Long id, String name, String description, Double price, String imgUrl, String tipoConexao, String originalReplica, String cor) {
-        super(id, name, description, price, imgUrl);
+    public Controles( String name, String description, Double price, String imgUrl, String tipoConexao, String originalReplica, String cor, Categoria categoria) {
+        super( name, description, price, imgUrl, categoria);
         this.tipoConexao = tipoConexao;
         this.originalReplica = originalReplica;
         this.cor = cor;

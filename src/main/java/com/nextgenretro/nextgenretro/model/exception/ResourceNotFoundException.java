@@ -1,4 +1,4 @@
-package com.nextgenretro.nextgenretro.model.controller.exception;
+package com.nextgenretro.nextgenretro.model.exception;
 
 public class ResourceNotFoundException extends RuntimeException{
     public ResourceNotFoundException(Object id){

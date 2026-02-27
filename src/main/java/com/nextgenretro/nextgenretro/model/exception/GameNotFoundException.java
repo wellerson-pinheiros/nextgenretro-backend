@@ -1,4 +1,4 @@
-package com.nextgenretro.nextgenretro.model.controller.exception;
+package com.nextgenretro.nextgenretro.model.exception;
 
 public class GameNotFoundException extends RuntimeException{
     public GameNotFoundException(String name){

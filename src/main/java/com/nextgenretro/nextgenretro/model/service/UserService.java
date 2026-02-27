@@ -2,7 +2,7 @@ package com.nextgenretro.nextgenretro.model.service;
 
 import com.nextgenretro.nextgenretro.model.entities.User;
 import com.nextgenretro.nextgenretro.model.repository.UserRepository;
-import com.nextgenretro.nextgenretro.model.controller.exception.ResourceNotFoundException;
+import com.nextgenretro.nextgenretro.model.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.nextgenretro.nextgenretro.model.controller.exception;
+package com.nextgenretro.nextgenretro.model.exception;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;

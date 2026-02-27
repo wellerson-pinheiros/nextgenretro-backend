@@ -1,7 +1,10 @@
 package com.nextgenretro.nextgenretro.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.nextgenretro.nextgenretro.model.entities.enums.CategoriaEnum;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.*;
 
@@ -11,10 +14,14 @@ public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @NotBlank(message = "A categoria é obrigatória")
-    private String nomeCategoria;
 
-    @OneToMany(mappedBy = "categoria")
+    @NotNull(message = "A categoria é obrigatória")
+    @Column(nullable = false, unique = true)
+    @Enumerated(EnumType.STRING)
+    private CategoriaEnum nomeCategoria;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "categoria",fetch = FetchType.LAZY)
     private Set<Jogos> jogos = new HashSet<>();
 
     //Construtor vazio
@@ -22,10 +29,9 @@ public class Categoria {
 
     //Contrutor com argumento
 
-    public Categoria(long id, String nomeCategoria) {
-        this.id = id;
-        this.nomeCategoria = nomeCategoria;
-    }
+   public Categoria(String nomeCategoria) {
+        this.nomeCategoria = CategoriaEnum.valueOf(nomeCategoria);
+   }
 
 
     // Getter and Setter
@@ -39,11 +45,11 @@ public class Categoria {
         this.id = id;
     }
 
-    public String getNomeCategoria() {
+    public CategoriaEnum getNomeCategoria() {
         return nomeCategoria;
     }
 
-    public void setNomeCategoria(String nomeCategoria) {
+    public void setNomeCategoria(CategoriaEnum nomeCategoria) {
         this.nomeCategoria = nomeCategoria;
     }
 

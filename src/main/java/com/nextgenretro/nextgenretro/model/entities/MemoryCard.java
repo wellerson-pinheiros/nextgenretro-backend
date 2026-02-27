@@ -12,8 +12,8 @@ public class MemoryCard extends Product {
 
     public MemoryCard() {}
 
-    public MemoryCard(Long id, String name, String description, Double price, String imgUrl, String capacidade) {
-        super(id, name, description, price, imgUrl);
+    public MemoryCard( String name, String description, Double price, String imgUrl, String capacidade,Categoria categoria) {
+        super( name, description, price, imgUrl,categoria);
         this.capacidade = capacidade;
     }
 

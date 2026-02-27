@@ -1,4 +1,4 @@
-package com.nextgenretro.nextgenretro.model.controller.exception;
+package com.nextgenretro.nextgenretro.model.exception;
 
 public class GamePriceNotFoundException extends RuntimeException{
     public GamePriceNotFoundException(Double minPrice, Double maxPrice) {

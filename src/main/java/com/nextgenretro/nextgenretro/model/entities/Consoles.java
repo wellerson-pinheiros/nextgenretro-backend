@@ -16,8 +16,8 @@ public class Consoles extends Product{
     public Consoles() {
     }
 
-    public Consoles(Long id, String name, String description, Double price, String imgUrl, String modelo, LocalDate anoLancamento) {
-        super(id, name, description, price, imgUrl);
+    public Consoles( String name, String description, Double price, String imgUrl, String modelo, LocalDate anoLancamento,Categoria categoria) {
+        super( name, description, price, imgUrl, categoria);
         this.modelo = modelo;
         this.anoLancamento = anoLancamento;
     }

@@ -1,8 +1,10 @@
 package com.nextgenretro.nextgenretro.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
 
@@ -12,7 +14,6 @@ import java.util.Objects;
 public abstract class Product  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotNull
     private Long id;
 
     @NotBlank(message = "O nome é obrigatório")
@@ -22,7 +23,8 @@ public abstract class Product  {
     @Column(length = 500, nullable = true)
     private String description;
 
-    @NotBlank(message = "O preço é obrigatório")
+    @NotNull(message = "O preço é obrigatório")
+    @Positive(message = "O preço deve ser maior que zero")
     private Double price;
 
     @Column(nullable = true)
@@ -31,17 +33,22 @@ public abstract class Product  {
     @Column(length = 500, nullable = true)
     private String imgUrl;
 
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    @JsonIgnore// Certifique-se de que essa coluna existe na tabela
+    protected Categoria categoria;
 
     // Construtor vazio
     public Product() {}
 
     //Construtor com argumento
-    public Product(Long id, String name, String description, Double price, String imgUrl) {
-        this.id = id;
+    public Product( String name, String description, Double price, String imgUrl, Categoria categoria) {
+
         this.name = name;
         this.description = description;
         this.price = price;
         this.imgUrl = imgUrl;
+        this.categoria = categoria;
     }
 
 
@@ -95,6 +102,14 @@ public abstract class Product  {
 
     public void setFabricante(String fabricante) {
         this.fabricante = fabricante;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
     }
 
 

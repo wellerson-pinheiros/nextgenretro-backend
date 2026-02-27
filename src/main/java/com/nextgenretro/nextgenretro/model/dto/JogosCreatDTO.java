@@ -1,12 +1,9 @@
 package com.nextgenretro.nextgenretro.model.dto;
 
-import com.nextgenretro.nextgenretro.model.entities.Categoria;
-import com.nextgenretro.nextgenretro.model.entities.GeneroJogos;
-
-
+import java.util.List;
 import java.util.Set;
 
-public record JogosDTO(
+public record JogosCreatDTO(
 
         String name,
         String description,
@@ -14,9 +11,9 @@ public record JogosDTO(
         String fabricante,
         String imgUrl,
         String plataforma,
-        Set<GeneroJogosDTO> generos,
-        String fachaEtaria
-
-
+        Set <GeneroJogosDTO> genero,
+        String fachaEtaria,
+        CategoriaDTO categoriaDTO
 ) {
+
 }

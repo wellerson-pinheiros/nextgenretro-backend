@@ -24,10 +24,7 @@ public class Jogos extends Product{
     @Column(nullable = true)
     private String fachaEtaria;
 
-    @ManyToOne
-    @JoinColumn(name = "categoria_id")
-    @JsonIgnore// Certifique-se de que essa coluna existe na tabela
-    private Categoria categoria;
+
 
 
     //Contrutor vázio
@@ -36,11 +33,12 @@ public class Jogos extends Product{
 
     // Construtor com argumento
 
-    public Jogos (Long id, String name, String description, Double price, String imgUrl, String plataforma, String fachaEtaria, Categoria categoria) {
-        super(id, name, description, price, imgUrl);
+    public Jogos ( String name, String description, Double price, String imgUrl, String plataforma, String fachaEtaria,Set<GeneroJogos> generos,Categoria categoria) {
+        super(name, description, price, imgUrl,categoria);
         this.plataforma = plataforma;
         this.fachaEtaria = fachaEtaria;
-        this.categoria = categoria;
+        this.generos = generos;
+
     }
 
     //getter and setter
@@ -74,14 +72,5 @@ public class Jogos extends Product{
     public void removeGeneroJogos(GeneroJogos generoJogos) {
         this.generos.remove(generoJogos);
     }
-
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
-
 
 }
